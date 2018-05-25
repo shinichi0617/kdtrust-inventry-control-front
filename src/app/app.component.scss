@@ -1,0 +1,265 @@
+// Base
+// --------------------------------------------------
+
+// @import '../styles';
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/_variables";
+
+@keyframes fadeout {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.jnd-preload-screen {
+  z-index: 1031;  // navbar より前面に
+  opacity: 0;
+  animation: fadeout 400ms;
+  pointer-events: none;
+}
+
+.jnd-root {
+}
+.jnd-container-root {
+  padding-top: 50px;    // The fixed navbar require padding-top
+}
+
+// headerClassName ごとに配色を変えている
+.development {
+  // https://work.smarchal.com/twbscolor/3.3.7/scss/8cc4f92c86db000000ffffff0
+  $bgDefault      : #8cc4f9;
+  $bgHighlight    : #2c86db;
+  $colDefault     : #000000;
+  $colHighlight   : #ffffff;
+  $dropDown       : false;
+  .navbar-inverse {
+    background-color: $bgDefault;
+    border-color: $bgHighlight;
+    .navbar-brand {
+      color: $colDefault;
+      &:hover, &:focus {
+        color: $colHighlight; }}
+    .navbar-text {
+      color: $colDefault; }
+    .navbar-nav {
+      > li {
+        > a {
+          color: $colDefault;
+          &:hover,  &:focus {
+            color: $colHighlight; }}
+        @if $dropDown {
+          > .dropdown-menu {
+            background-color: $bgDefault;
+            > li {
+              > a {
+                color: $colDefault;
+                &:hover,  &:focus {
+                  color: $colHighlight;
+                  background-color: $bgHighlight; }}
+              &.divider {
+                background-color: $bgHighlight;}}}}}
+      @if $dropDown {
+        .open .dropdown-menu > .active {
+          > a, > a:hover, > a:focus {
+            color: $colHighlight;
+            background-color: $bgHighlight; }}}
+      > .active {
+        > a, > a:hover, > a:focus {
+          color: $colHighlight;
+          background-color: $bgHighlight; }}
+      > .open {
+        > a, > a:hover, > a:focus {
+          color: $colHighlight;
+          background-color: $bgHighlight; }}}
+    .navbar-toggle {
+      border-color: $bgHighlight;
+      &:hover, &:focus {
+        background-color: $bgHighlight; }
+      .icon-bar {
+        background-color: $colDefault; }}
+    .navbar-collapse,
+    .navbar-form {
+      border-color: $colDefault; }
+    .navbar-link {
+      color: $colDefault;
+      &:hover {
+        color: $colHighlight; }}}
+  @media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu {
+      > li > a {
+        color: $colDefault;
+        &:hover, &:focus {
+          color: $colHighlight; }}
+      > .active {
+        > a, > a:hover, > a:focus {
+          color: $colHighlight;
+          background-color: $bgHighlight; }}}
+  }
+}
+
+.lab {
+  // https://work.smarchal.com/twbscolor/3.3.7/scss/ffc5f8ff9af3000000ffffff0
+  $bgDefault      : #ffc5f8;
+  $bgHighlight    : #ff9af3;
+  $colDefault     : #000000;
+  $colHighlight   : #ffffff;
+  $dropDown       : false;
+  .navbar-inverse {
+    background-color: $bgDefault;
+    border-color: $bgHighlight;
+    .navbar-brand {
+      color: $colDefault;
+      &:hover, &:focus {
+        color: $colHighlight; }}
+    .navbar-text {
+      color: $colDefault; }
+    .navbar-nav {
+      > li {
+        > a {
+          color: $colDefault;
+          &:hover,  &:focus {
+            color: $colHighlight; }}
+        @if $dropDown {
+          > .dropdown-menu {
+            background-color: $bgDefault;
+            > li {
+              > a {
+                color: $colDefault;
+                &:hover,  &:focus {
+                  color: $colHighlight;
+                  background-color: $bgHighlight; }}
+              > .divider {
+                background-color: $bgHighlight;}}}}}
+      @if $dropDown {
+        .open .dropdown-menu > .active {
+          > a, > a:hover, > a:focus {
+            color: $colHighlight;
+            background-color: $bgHighlight; }}}
+      > .active {
+        > a, > a:hover, > a:focus {
+          color: $colHighlight;
+          background-color: $bgHighlight; }}
+      > .open {
+        > a, > a:hover, > a:focus {
+          color: $colHighlight;
+          background-color: $bgHighlight; }}}
+    .navbar-toggle {
+      border-color: $bgHighlight;
+      &:hover, &:focus {
+        background-color: $bgHighlight; }
+      .icon-bar {
+        background-color: $colDefault; }}
+    .navbar-collapse,
+    .navbar-form {
+      border-color: $colDefault; }
+    .navbar-link {
+      color: $colDefault;
+      &:hover {
+        color: $colHighlight; }}}
+  @media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu {
+      > li > a {
+        color: $colDefault;
+        &:hover, &:focus {
+          color: $colHighlight; }}
+      > .active {
+        > a, > a:hover, > a:focus {
+          color: $colHighlight;
+          background-color: $bgHighlight; }}}
+  }
+}
+
+.staging {
+  // https://work.smarchal.com/twbscolor/3.3.7/scss/ff7575ff0a0a000000ffffff0
+  $bgDefault      : #ff7575;
+  $bgHighlight    : #ff0a0a;
+  $colDefault     : #000000;
+  $colHighlight   : #ffffff;
+  $dropDown       : false;
+  .navbar-inverse {
+    background-color: $bgDefault;
+    border-color: $bgHighlight;
+    .navbar-brand {
+      color: $colDefault;
+      &:hover, &:focus {
+        color: $colHighlight; }}
+    .navbar-text {
+      color: $colDefault; }
+    .navbar-nav {
+      > li {
+        > a {
+          color: $colDefault;
+          &:hover,  &:focus {
+            color: $colHighlight; }}
+        @if $dropDown {
+          > .dropdown-menu {
+            background-color: $bgDefault;
+            > li {
+              > a {
+                color: $colDefault;
+                &:hover,  &:focus {
+                  color: $colHighlight;
+                  background-color: $bgHighlight; }}
+              &.divider {
+                background-color: $bgHighlight;}}}}}
+      @if $dropDown {
+        .open .dropdown-menu > .active {
+          > a, > a:hover, > a:focus {
+            color: $colHighlight;
+            background-color: $bgHighlight; }}}
+      > .active {
+        > a, > a:hover, > a:focus {
+          color: $colHighlight;
+          background-color: $bgHighlight; }}
+      > .open {
+        > a, > a:hover, > a:focus {
+          color: $colHighlight;
+          background-color: $bgHighlight; }}}
+    .navbar-toggle {
+      border-color: $bgHighlight;
+      &:hover, &:focus {
+        background-color: $bgHighlight; }
+      .icon-bar {
+        background-color: $colDefault; }}
+    .navbar-collapse,
+    .navbar-form {
+      border-color: $colDefault; }
+    .navbar-link {
+      color: $colDefault;
+      &:hover {
+        color: $colHighlight; }}}
+  @media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu {
+      > li > a {
+        color: $colDefault;
+        &:hover, &:focus {
+          color: $colHighlight; }}
+      > .active {
+        > a, > a:hover, > a:focus {
+          color: $colHighlight;
+          background-color: $bgHighlight; }}}
+  }
+}
+
+// 現在の運用状態のバッジカラー
+// 下書き
+/deep/ .jnd-badge-draft {
+  background-color: $brand-danger;
+}
+// 開通待
+/deep/ .jnd-badge-before_operation {
+  background-color: $brand-warning;
+}
+
+// 利用中
+/deep/ .jnd-badge-in_operation {
+  background-color: $brand-success;
+}
+
+// 解約予定
+/deep/ .jnd-badge-will_be_deactivated {
+  background-color: darken($brand-success, 20%);
+}
+
+// 解約済
+/deep/ .jnd-badge-deactivated {
+  background-color: $gray-light;
+}
