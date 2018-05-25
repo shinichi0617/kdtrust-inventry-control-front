@@ -5,10 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { InventoryService } from './inventory/inventory.service';
+import { InventoryListPageComponent } from './inventory/inventory-list-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    InventoryListPageComponent
   ],
   imports: [
     BrowserModule,
@@ -17,7 +20,9 @@ import { AppComponent } from './app.component';
     // app modules
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    InventoryService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

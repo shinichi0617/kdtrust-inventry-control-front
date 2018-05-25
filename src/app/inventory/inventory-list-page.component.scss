@@ -1,0 +1,20 @@
+.jnd-filter-input {
+  width: 400px;
+}
+
+.jnd-table-loading {
+  opacity: 0.4;
+}
+
+// リストの件数を表示
+.jnd-table-info {
+  font-size: 1em;
+  // TODO 装飾したい場合は適宜変更
+}
+
+// フィルタのトグルのON/OFFをわかりやすくするためにactive時の挙動を上書き
+.btn-group > .btn.btn-default.active {
+  color: #fff;
+  background-color: #204d74;
+  border-color: #122b40;
+}
