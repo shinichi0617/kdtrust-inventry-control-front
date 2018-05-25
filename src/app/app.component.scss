@@ -9,16 +9,16 @@
   to { opacity: 0; }
 }
 
-.jnd-preload-screen {
+.kdt-preload-screen {
   z-index: 1031;  // navbar より前面に
   opacity: 0;
   animation: fadeout 400ms;
   pointer-events: none;
 }
 
-.jnd-root {
+.kdt-root {
 }
-.jnd-container-root {
+.kdt-container-root {
   padding-top: 50px;    // The fixed navbar require padding-top
 }
 
@@ -239,27 +239,3 @@
   }
 }
 
-// 現在の運用状態のバッジカラー
-// 下書き
-/deep/ .jnd-badge-draft {
-  background-color: $brand-danger;
-}
-// 開通待
-/deep/ .jnd-badge-before_operation {
-  background-color: $brand-warning;
-}
-
-// 利用中
-/deep/ .jnd-badge-in_operation {
-  background-color: $brand-success;
-}
-
-// 解約予定
-/deep/ .jnd-badge-will_be_deactivated {
-  background-color: darken($brand-success, 20%);
-}
-
-// 解約済
-/deep/ .jnd-badge-deactivated {
-  background-color: $gray-light;
-}
