@@ -2,21 +2,12 @@
   <nav id="control_navbar" class="navbar navbar-default navbar-fixed-top" style="margin-top: 50px;" role="navigation">
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse m-x-1">
-      <form class="navbar-form navbar-left" role="search">
+      <div class="navbar-form navbar-left" role="search">
         <div class="form-group">
           <label>Filter:</label>
-          <input type="text" name="filterCode" class="form-control jnd-filter-input"
-              [(ngModel)]="searchCondition.query" (change)="search()" placeholder="filter ...">
+          <input type="text" name="filterCode" class="form-control kdt-filter-input" placeholder="filter ...">
         </div>
-      </form>
-      <form class="navbar-form navbar-right" role="action">
-        <div class="form-group">
-            <div class="btn-group">
-              <label class="btn btn-default" *ngFor="let os of operationStatuses" [(ngModel)]="searchCondition.opStatus[os]"
-                name="operationStatus_{{os}}" btnCheckbox (click)="search()">{{os | jndOperationStatusLabel}}</label>
-            </div>
-        </div>
-      </form>
+      </div>
     </div><!-- /.navbar-collapse -->
   </nav>
 
@@ -24,79 +15,33 @@
   <div class="row" style="margin-top: 60px;">
     <div class="col-md-12">
       <div class="pull-left">
-        <!-- aria-live属性は不要かもしれないがSISngと統一しているため設定している -->
-        <div class="jnd-table-info" role="status" aria-live="polite">
+        <div class="kdt-table-info" role="status" aria-live="polite">
           <!-- 特にページングとかしてないので決め打ちで1にしてるが今後変わる可能性あり -->
-          Showing 1 to {{serviceIfs?.length}} of {{allServiceIfs?.length}} entries
+          Showing 1 to {{inventories?.length}} of {{inventories?.length}} entries
         </div>
       </div>
-      <app-loading-indicator [isLoading]="isLoading"></app-loading-indicator>
 
-      <table class="table table-striped" [class.jnd-table-loading]="isLoading">
+      <table class="table table-striped" [class.kdt-table-loading]="isLoading">
         <thead>
           <tr>
-            <th width="100px"></th>
-            <th>Code</th>
-            <th>AS Number</th>
-            <th>IPv4 Address</th>
-            <th>IPv6 Address</th>
-            <th>Sys A Port</th>
-            <th>Sys B Port</th>
-            <th>Opt SW Port</th>
-            <th>isLag / isLacp</th>
-            <th>Logical Equip Id2</th>
+            <th width="100px">Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Size</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>UnitPrice</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let serviceIf of serviceIfs">
-            <td><span class="label label-default jnd-badge-{{serviceIf.operationStatus}}">{{serviceIf.operationStatus | jndOperationStatusLabel}}</span></td>
-            <td><a [routerLink]="['/', serviceIf.code]">{{getCodeLabel(serviceIf)}}</a></td>
-            <td>{{serviceIf.asNumber}}</td>
-            <td>
-              <span class="text-center" *ngIf="!serviceIf.isDeep">-</span>
-              <span *ngIf="serviceIf.isDeep">{{serviceIf.publicVLANContract?.ipv4Router?.addressResource?.address}}</span>
-            </td>
-            <td>
-              <span class="text-center" *ngIf="!serviceIf.isDeep">-</span>
-              <span *ngIf="serviceIf.isDeep">{{serviceIf.publicVLANContract?.ipv6Router?.addressResource?.address}}</span>
-            </td>
-            <td>
-              <span class="text-center" *ngIf="!serviceIf.isDeep">-</span>
-              <div *ngIf="serviceIf.isDeep">
-                <div *ngIf="serviceIf.isDeep && getSysAPorts(serviceIf) != null && getSysAPorts(serviceIf).length != 0">
-                  <div *ngFor="let port of getSysAPorts(serviceIf)">
-                    {{port}}
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td>
-              <span class="text-center" *ngIf="!serviceIf.isDeep">-</span>
-              <div *ngIf="serviceIf.isDeep">
-                <div *ngIf="serviceIf.isDeep && getSysBPorts(serviceIf) != null && getSysBPorts(serviceIf).length != 0">
-                  <div *ngFor="let port of getSysBPorts(serviceIf)">
-                    {{port}}
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td>
-              <span class="text-center" *ngIf="!serviceIf.isDeep">-</span>
-              <div *ngIf="serviceIf.isDeep">
-                <div *ngIf="serviceIf.isDeep && getOpticalswitchPorts(serviceIf) != null && getOpticalswitchPorts(serviceIf).length != 0">
-                  <div *ngFor="let port of getOpticalswitchPorts(serviceIf)">
-                    {{port}}
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td>
-              <span class="text-center" *ngIf="!serviceIf.isDeep">-</span>
-              <div *ngIf="serviceIf.isDeep && getLagLabel(serviceIf) !== ''">
-                <span class="label label-default">{{getLagLabel(serviceIf)}}</span>
-              </div>
-            </td>
-            <td>{{serviceIf.logicalEquipmentIdentifier}}</td>
+          <tr *ngFor="let inventory of inventories">
+            <td>{{ inventory.id }}</td>
+            <td>{{ inventory.name }}</td>
+            <td>{{ inventory.description }}</td>
+            <td>{{ inventory.size }}</td>
+            <td>{{ inventory.type }}</td>
+            <td>{{ inventory.amount }}</td>
+            <td>{{ inventory.unitPrice }}</td>
           </tr>
         </tbody>
       </table>

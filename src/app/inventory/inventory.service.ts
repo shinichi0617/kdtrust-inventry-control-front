@@ -40,7 +40,10 @@ export class InventoryService {
     params = params.append('key', environment.apiKey);
     params = params.append('sql', sql);
 
-    return this.http.get<Inventory[]>(url, { params });
+    return this.http.get<any[]>(url, { params })
+      .map((res: any) => {
+        return res.rows as Inventory[];
+      });
   }
 
 }
