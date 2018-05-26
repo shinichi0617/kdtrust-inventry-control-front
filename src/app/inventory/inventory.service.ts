@@ -16,6 +16,18 @@ export class Inventory {
   type: string;
   amount: number;
   unitPrice: number;
+
+  constructor (
+    private elm: any,
+  ) {
+    this.id = elm[0];
+    this.name = elm[1];
+    this.description = elm[2;
+    this.size = elm[3];
+    this.type = elm[4];
+    this.amount = elm[5];
+    this.unitPrice = elm[6];
+  }
 }
 
 @Injectable()
@@ -42,7 +54,11 @@ export class InventoryService {
 
     return this.http.get<any[]>(url, { params })
       .map((res: any) => {
-        return res.rows as Inventory[];
+        const arr: Inventory[] = [];
+        res.rows.forEach((element: any)  => {
+          arr.push(new Inventory(element));
+        });
+        return arr;
       });
   }
 
