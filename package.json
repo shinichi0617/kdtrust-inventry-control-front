@@ -6,7 +6,7 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "node server",
+    "start": "node server/index.js",
     "//": "node misc/scripts/inject-env",
     "build": "ng build --prod",
     "//": "node misc/scripts/inject-env -u",
