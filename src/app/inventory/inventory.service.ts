@@ -22,7 +22,7 @@ export class Inventory {
   ) {
     this.id = elm[0];
     this.name = elm[1];
-    this.description = elm[2;
+    this.description = elm[2];
     this.size = elm[3];
     this.type = elm[4];
     this.amount = elm[5];

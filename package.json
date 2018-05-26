@@ -5,9 +5,9 @@
   "scripts": {
     "ng": "ng",
     "start": "node server",
-    "prebuild": "node misc/scripts/inject-env",
+    "//": "node misc/scripts/inject-env",
     "build": "ng build --prod",
-    "postbuild": "node misc/scripts/inject-env -u",
+    "//": "node misc/scripts/inject-env -u",
     "test:ci": "ng test --watch=false --code-coverage --browsers ChromeHeadlessNoSandbox",
     "test": "ng test --source-map=false",
     "lint": "ng lint",
