@@ -11,7 +11,7 @@ import { environment } from '../../environments/environment';
 export class Inventory {
   id: number;
   name: string;
-  description: string;
+  customer: string;
   size: string;
   type: string;
   amount: number;
@@ -22,7 +22,7 @@ export class Inventory {
   ) {
     this.id = elm[0];
     this.name = elm[1];
-    this.description = elm[2];
+    this.customer = elm[2];
     this.size = elm[3];
     this.type = elm[4];
     this.amount = elm[5];

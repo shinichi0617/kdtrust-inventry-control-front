@@ -25,21 +25,15 @@
         <thead>
           <tr>
             <th width="100px">Id</th>
-            <th>品番</th>
-            <th>詳細</th>
-            <th>サイズ</th>
-            <th>種別</th>
+            <th>名前</th>
             <th>個数</th>
-            <th>単価</th>
+            <th>仕入れ値</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let inventory of inventories">
             <td>{{ inventory.id }}</td>
-            <td>{{ inventory.name }}</td>
-            <td>{{ inventory.description }}</td>
-            <td>{{ inventory.size }}</td>
-            <td>{{ inventory.type }}</td>
+            <td>{{ inventory.type }} {{ inventory.name }} {{ inventory.size }}</td>
             <td>{{ inventory.amount }}</td>
             <td>{{ inventory.unitPrice }}</td>
           </tr>
