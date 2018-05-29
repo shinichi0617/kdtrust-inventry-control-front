@@ -11,22 +11,26 @@ import { environment } from '../../environments/environment';
 export class Inventory {
   id: number;
   name: string;
-  customer: string;
-  size: string;
-  type: string;
-  amount: number;
-  unitPrice: number;
+  ss: number;
+  s: number;
+  m: number;
+  l: number;
+  ll: number;
+  lll: number;
+  llll: number;
 
   constructor (
     private elm: any,
   ) {
     this.id = elm[0];
     this.name = elm[1];
-    this.customer = elm[2];
-    this.size = elm[3];
-    this.type = elm[4];
-    this.amount = elm[5];
-    this.unitPrice = elm[6];
+    this.ss = elm[2];
+    this.s = elm[3];
+    this.m = elm[4];
+    this.l = elm[5];
+    this.ll = elm[6];
+    this.lll = elm[7];
+    this.llll = elm[8];
   }
 }
 

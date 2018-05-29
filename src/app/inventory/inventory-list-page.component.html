@@ -24,18 +24,26 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th width="100px">Id</th>
             <th>名前</th>
-            <th>個数</th>
-            <th>仕入れ値</th>
+            <th>SS</th>
+            <th>S</th>
+            <th>M</th>
+            <th>L</th>
+            <th>LL</th>
+            <th>3L</th>
+            <th>4L</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let inventory of inventories">
-            <td>{{ inventory.id }}</td>
-            <td>{{ inventory.type }} {{ inventory.name }} {{ inventory.size }}</td>
-            <td>{{ inventory.amount }}</td>
-            <td>{{ inventory.unitPrice }}</td>
+            <td>{{ inventory.name }}</td>
+            <td>{{ inventory.ss }}</td>
+            <td>{{ inventory.s }}</td>
+            <td>{{ inventory.m }}</td>
+            <td>{{ inventory.l }}</td>
+            <td>{{ inventory.ll }}</td>
+            <td>{{ inventory.lll }}</td>
+            <td>{{ inventory.llll }}</td>
           </tr>
         </tbody>
       </table>
